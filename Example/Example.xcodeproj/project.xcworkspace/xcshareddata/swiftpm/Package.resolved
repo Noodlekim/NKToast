@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "nktoast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Noodlekim/NKToast.git",
+      "state" : {
+        "revision" : "6d238487747c33f172f63204e898fdf7c6d2a8f2",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
