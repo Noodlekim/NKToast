@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Toast: ViewModifier {
-    enum MessageType {
+public struct Toast: ViewModifier {
+    public enum MessageType {
         case normal(String)
         case error(String)
 
@@ -31,7 +31,7 @@ struct Toast: ViewModifier {
         }
     }
 
-    enum Position {
+    public enum Position {
         case top
         case center
         case bottom
@@ -91,7 +91,7 @@ struct Toast: ViewModifier {
         .animation(.easeInOut(duration: 0.3), value: showToast)
     }
 
-    func toastView(message: String) -> some View {
+    private func toastView(message: String) -> some View {
         HStack {
             Text(message)
                 .font(.system(size: 13, weight: .bold))
@@ -106,8 +106,8 @@ struct Toast: ViewModifier {
     }
 }
 
-extension View {
-    func toast(messageType: Toast.MessageType, position: Toast.Position, showToast: Binding<Bool>) -> some View {
+public extension View {
+    public func toast(messageType: Toast.MessageType, position: Toast.Position, showToast: Binding<Bool>) -> some View {
         return modifier(Toast(messageType: messageType, position: position, showToast: showToast))
     }
 }
