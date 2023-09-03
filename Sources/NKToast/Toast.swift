@@ -50,7 +50,7 @@ public struct Toast: ViewModifier {
         _showToast = showToast
     }
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         VStack {
             switch position {
             case .top:
@@ -59,7 +59,11 @@ public struct Toast: ViewModifier {
                         toastView(message: messageType.message)
                         Spacer()
                     }
-                    content
+                    VStack {
+                        Spacer()
+                        content
+                        Spacer()
+                    }
                 }
             case .bottom:
                 ZStack {
@@ -107,7 +111,7 @@ public struct Toast: ViewModifier {
 }
 
 public extension View {
-    public func toast(messageType: Toast.MessageType, position: Toast.Position, showToast: Binding<Bool>) -> some View {
+    func toast(messageType: Toast.MessageType, position: Toast.Position, showToast: Binding<Bool>) -> some View {
         return modifier(Toast(messageType: messageType, position: position, showToast: showToast))
     }
 }
